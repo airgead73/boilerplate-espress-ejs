@@ -4,7 +4,7 @@
   "description": "fullstack applicatio boilerplate using ejs for client views",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "NODE_ENV=development node -r dotenv/config index.js"
   },
   "keywords": [
     "express",
@@ -15,7 +15,9 @@
   "author": "dan moneypenny",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.15",
+    "open": "^8.4.0"
   },
   "dependencies": {
     "ejs": "^3.1.6",
@@ -23,6 +25,6 @@
   },
   "nodemonConfig": {
     "delay": 2500,
-    "ext" : "js,html,ejs,json"
+    "ext": "js,html,ejs,json"
   }
 }

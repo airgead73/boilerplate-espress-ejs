@@ -1,6 +1,5 @@
-const express = require('express')
-const app = express()
-const port = 4000
+const express = require('express');
+const app = express();
 
 app.use(express.static('public'))
 
@@ -17,7 +16,8 @@ const posts = [
 
 const user = {
   firstName: 'Tim',
-  lastName: 'Cook'
+  lastName: 'Cook',
+  
 }
 
 app.get('/', (req, res) => {
@@ -33,6 +33,4 @@ app.get('/articles', (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`App listening at port ${port}`)
-});
+module.exports = app;

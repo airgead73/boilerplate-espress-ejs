@@ -1,5 +1,5 @@
 const http = require('http');
-const app = require('./app.js')
+const app = require('./app/app.js')
 const port = process.env.SERVER_PORT || process.env.PORT || 5000;
 
 if (port === undefined) {
@@ -21,7 +21,6 @@ function onError(error) {
     throw error;
   }
 
-  // assign error messages.
   switch (error.code) {
     case 'EACCES':
       console.log(`Port ${port} requires privileges`);

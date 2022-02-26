@@ -1,5 +1,6 @@
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const { errorHandler } = require('./middleware/errorMiddleware');
 const app = express();
 
 const { auth, requiresAuth } = require('express-openid-connect');
@@ -48,5 +49,21 @@ app.get('/articles', (req, res) => {
       articles: posts
   });
 });
+
+/**
+ * @description error handling
+ */
+
+ app.use(function(req, res, next) {
+  const error = new Error('Path not found');
+  error.status = 404;
+  next(error);
+});
+
+app.use(errorHandler);
+
+/**
+ * @description export
+ */
 
 module.exports = app;
